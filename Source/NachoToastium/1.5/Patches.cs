@@ -88,7 +88,7 @@ internal static class Patches
     /// <remarks>This silences the "Slave unsuppressed" alert.</remarks>
     private static void SuppressionIsHigh_Postfix(ref bool __result, Pawn ___pawn)
     {
-        if (!__result)
+        if (__result)
         {
             // Already seen as not needing suppression, no need to do anything more.
             return;
@@ -96,7 +96,7 @@ internal static class Patches
 
         if (___pawn.HasBehaviouralChip())
         {
-            __result = false;
+            __result = true;
         }
     }
 }
